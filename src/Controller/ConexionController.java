@@ -21,8 +21,9 @@ public class ConexionController implements ActionListener {
    Principal VistaPrincipal;
    Conexion ModelConexion;
    frmPersonas VistaPersona;
+   
 
-    public ConexionController(frmLogin VistaLogin, Principal VistaPrincipal, Conexion ModelConexion,frmPersonas VistaPersona) {
+    public ConexionController(frmLogin VistaLogin, Principal VistaPrincipal, Conexion ModelConexion,frmPersonas VistaPersona,PersonaModel ModeloPer) {
         this.VistaLogin = VistaLogin;
         this.VistaPrincipal = VistaPrincipal;
         this.ModelConexion = ModelConexion;
@@ -51,9 +52,16 @@ public class ConexionController implements ActionListener {
                     if(ModelConexion!= null)
                     {
                         this.VistaLogin.dispose();
+                        this.VistaPersona.btnGuardar.addActionListener(this);
                         this.VistaPersona.setLocationRelativeTo(null);
                         this.VistaPersona.setVisible(true);
                     }
+                if(arg0.getSource()==this.VistaPersona.btnGuardar);
+                {
+                    this.ModeloPersona.GuardarPersona(this.VistaPersona.txtApellidos.getText(),
+                            this.VistaPersona.txtNombre.getText(),
+                            )
+                }
             
             
         }
